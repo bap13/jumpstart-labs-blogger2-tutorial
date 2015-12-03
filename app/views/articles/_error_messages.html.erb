@@ -1,0 +1,8 @@
+<div class="errors">
+  <h3><%= pluralize(@article.errors.count, "error") %></h3>
+  <ul>
+    <% @article.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div> 

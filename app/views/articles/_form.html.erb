@@ -1,0 +1,19 @@
+<%= form_for(@article) do |f| %>
+
+  <% if @article.errors.any? %>
+    <%= render 'error_messages' %>
+  <% end %>
+  
+  <div class="title-field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div> 
+  <div class="body-field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+<% end %>
+   

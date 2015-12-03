@@ -1,0 +1,16 @@
+<div class="article">
+  <div class="article-title">
+    <% if @articles %>
+      <%= link_to article.title, article_path(article) %>
+    <% end %>
+  </div>
+  <div class="article-body">
+    <%= article.body %>
+  </div>
+  <div class="article-actions">
+    <%= link_to "Edit", edit_article_path(article) %> | 
+    <%= link_to "Delete", article_path(article),
+                         method: :delete,
+                         data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
