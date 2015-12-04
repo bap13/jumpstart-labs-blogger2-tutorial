@@ -1,0 +1,18 @@
+<%= form_for [ @article, @comment ] do |f| %>
+
+  <% if @comment.errors.any? %>
+    <%= render 'error_messages' %>
+  <% end %>
+  
+  <div class="author-field">
+    <%= f.label :author_name, "Your Name" %>
+    <%= f.text_field :author_name %>
+  </div> 
+  <div class="body-field">
+    <%= f.label :body, "Comment" %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -4,4 +4,13 @@
   <%= render @article %>
 </div>
 
+<h3>Comments (<%= @comments.count %>)</h3>
+<div class="comment">
+  <%= render @comments %>
+</div>
+
+<div class="comment-form">
+  <%= render "comments/form" %>
+</div>
+
 <%= link_to "Back to All Articles", articles_path, class: "index" %>
