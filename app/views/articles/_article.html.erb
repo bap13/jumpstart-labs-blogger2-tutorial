@@ -1,16 +1,29 @@
 <div class="article">
-  <div class="article-title">
-    <% if @articles %>
+  
+  <% if @articles %>
+    <div class="article-title">
       <%= link_to article.title, article_path(article) %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  
+  <% if article.tags.any? %>
+    <div class="tags">
+      Tags: 
+      <% article.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag) %>
+      <% end %>
+    </div>
+  <% end %>
+  
   <div class="article-body">
     <%= article.body %>
   </div>
+  
   <div class="article-actions">
     <%= link_to "Edit", edit_article_path(article) %> | 
     <%= link_to "Delete", article_path(article),
                          method: :delete,
                          data: { confirm: "Are you sure?" } %>
   </div>
+  <hr>
 </div>
