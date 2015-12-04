@@ -1,4 +1,4 @@
-<%= form_for(@article) do |f| %>
+<%= form_for(@article, html: {multipart: true}) do |f| %>
 
   <% if @article.errors.any? %>
     <%= render 'error_messages' %>
@@ -8,16 +8,28 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div> 
+  
   <div class="body-field">
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
+  
   <div class="tags-field">
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
   </div>
+  
+  <div class="image-field">
+    <% if @article.image.exists? %>
+      <%= image_tag @article.image.url(:thumb) %>
+    <% end %>
+    <%= f.label :image, "Attach a New image" %>
+    <%= f.file_field :image %>
+  </div>
+  
   <div class="submit">
     <%= f.submit %>
   </div>
+  
 <% end %>
    

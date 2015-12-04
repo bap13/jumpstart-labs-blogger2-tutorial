@@ -2,6 +2,9 @@ class Article < ActiveRecord::Base
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
+  has_attached_file :image, styles: { thumb: "180x180>" }
+  validates_attachment_content_type :image,
+                      :content_type => ["image/jpg", "image/jpeg", "image/png"]
   validates :title, :body, presence: true
   
   def tag_list

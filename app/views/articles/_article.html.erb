@@ -15,6 +15,16 @@
     </div>
   <% end %>
   
+  <% if article.image.exists? %>
+    <div class="image">
+      <% if @articles %>
+        <%= image_tag article.image.url(:thumb) %>
+      <% else %>
+        <%= image_tag article.image.url, width: '100%' %>
+      <% end %>
+    </div>
+  <% end %>
+  
   <div class="article-body">
     <%= article.body %>
   </div>
